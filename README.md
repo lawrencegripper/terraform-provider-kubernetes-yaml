@@ -1,3 +1,11 @@
+# Deprecated but alive and well
+
+This repository has been deprecated as [David Ford](https://github.com/davisford) is maintaining a more advanced fork which takes this code and gives it the love I haven't been able to give.
+
+[To use the updated the updated version head over to the fork here](https://github.com/nabancard/terraform-provider-kubernetes-yaml)
+
+[See discussion here](https://github.com/lawrencegripper/terraform-provider-kubernetes-yaml/issues/20#issuecomment-496578325)
+
 # Kubernetes YAML Provider 
 
 [![Build Status](https://travis-ci.com/lawrencegripper/terraform-provider-kubernetes-yaml.svg?branch=master)](https://travis-ci.com/lawrencegripper/terraform-provider-kubernetes-yaml)
