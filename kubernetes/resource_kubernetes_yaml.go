@@ -165,7 +165,15 @@ func resourceKubernetesYAMLRead(d *schema.ResourceData, meta interface{}) error 
 	// Get the resource from Kubernetes
 	metaObjLive, err := client.Get(rawObj.GetName(), meta_v1.GetOptions{})
 	if err != nil {
-		return fmt.Errorf("failed to get resource '%s' from kubernetes: %+v", metaObjLive.GetSelfLink(), err)
+		if errors.IsNotFound(err) {
+			d.SetId("")
+			return nil
+		}
+		if metaObjLive != nil {
+			return fmt.Errorf("failed to get resource '%s' from kubernetes: %+v", metaObjLive.GetSelfLink(), err)
+		} else {
+			return fmt.Errorf("failed to get resource '%s' from kubernetes: %+v", rawObj.GetName(), err)
+		}
 	}
 
 	if metaObjLive.GetUID() == "" {
